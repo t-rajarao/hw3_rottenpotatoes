@@ -14,7 +14,11 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.content  is the entire content of the page as a string.
-  assert false, "Unimplmemented"
+#  body = page.body
+#  e1_ind = page.body.index(e1)
+#  e2_ind = page.body.index(e2)
+#puts "e1_ind: #{e1_ind} e2_ind: #{e2_ind}"
+  assert page.body.index(e1) < page.body.index(e2), "order violated..!!"
 end
 
 # Make it easier to express checking or unchecking several boxes at once
