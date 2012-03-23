@@ -29,3 +29,9 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
     When %Q{I #{uncheck}check #{rating}}
   end
 end
+
+Then /I should (not )?see all the movies/ do |_not|
+  Movie.all.each do |movie|
+    Then %Q{I should #{_not}see "#{movie.title}"}
+  end
+end
